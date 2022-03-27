@@ -1,0 +1,7 @@
+{
+  "name": "mysql1",
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0",
+    "mysql": "^2.18.1"
+  }
+}
