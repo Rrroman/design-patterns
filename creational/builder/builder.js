@@ -26,7 +26,7 @@ class CarBuilder {
 		this.car.signaling = signaling;
 		return this;
 	}
-  
+
 	updateEngine(engine) {
 		this.car.engine = engine;
 		return this;
@@ -36,3 +36,10 @@ class CarBuilder {
 		return this.car;
 	}
 }
+
+const myCar = new CarBuilder()
+  .addAutoPilot(true)
+  .addSignaling(true)
+  .build();
+  
+console.log(myCar);

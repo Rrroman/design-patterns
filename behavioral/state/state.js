@@ -1,38 +1,57 @@
 class OrderStatus {
-	constructor(name, nextStatus) {
-		this.name = name;
-		this.nextStatus = nextStatus;
-	}
+  constructor(name, nextStatus) {
+    this.name = name;
+    this.nextStatus = nextStatus;
+  }
 
-	next() {
-		return new this.nextStatus();
-	}
+  next() {
+    return new this.nextStatus();
+  }
 }
 
 class WaitingForPayment extends OrderStatus {
-	constructor() {
-		super('waitingForPayment', Shipping);
-	}
+  constructor() {
+    super('waitingForPayment', Shipping);
+  }
 }
 
 class Shipping extends OrderStatus {
-	constructor() {
-		super('shipping', Delivered);
-	}
+  constructor() {
+    super('shipping', Delivered);
+  }
 }
 
 class Delivered extends OrderStatus {
-	constructor() {
-		super('delivered', Delivered);
-	}
+  constructor() {
+    super('delivered', Delivered);
+  }
 }
 
 class Order {
-	constructor() {
-		this.state = new WaitingForPayment();
-	}
+  constructor() {
+    this.state = new WaitingForPayment();
+  }
 
-	nextState() {
-		this.state = this.state.next();
-	};
+  nextState() {
+    this.state = this.state.next();
+  }
+
+  cancelOrder() {
+    this.state.name === 'waitingForPayment' ?
+      console.log('Order canceled') :
+      console.log('Order can not be canceled');
+  }
 }
+
+const order = new Order();
+console.log(order.state.name);
+order.nextState();
+console.log(order.state.name);
+order.nextState();
+console.log(order.state.name);
+order.nextState();
+console.log(order.state.name);
+const order2 = new Order();
+order2.cancelOrder();
+order2.nextState();
+console.log(order2.state.name);

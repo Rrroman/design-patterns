@@ -29,3 +29,6 @@ class SecuritySystem {
 		this.door.close()
 	}
 };
+
+const car = new SecuritySystem(new CarAccess());
+car.open('Ilon');

@@ -3,16 +3,16 @@ class Engine2 {
 }
 
 class EngineV8 {
-	complecatedInterface() { console.log('Engine V8! - wroom wroom!') }
+	complicatedInterface() { console.log('Engine V8! - wroom wroom!') }
 }
 
 class EngineV8Adapter {
 	constructor(engine) {
 		this.engine = engine;
 	}
-     
+
 	simpleInterface() {
-		this.engine.complecatedInterface();
+		this.engine.complicatedInterface();
 	}
 }
 
@@ -21,3 +21,6 @@ class Auto {
 		engine.simpleInterface()
 	}
 }
+
+const myTesla = new Auto();
+myTesla.startEngine(new EngineV8Adapter(new EngineV8()));

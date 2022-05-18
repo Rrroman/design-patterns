@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+      integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.3/underscore-min.js"
+      integrity="sha512-01+8Rdvg1kM8Bu9AJTtDhyyuZmJHOjD1+fxA9S1sh3A7NyRFHpVCqt5vT7JqMxCTf/oEJIPOzYnc0R8l052+UA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="flickrSearch">
+      <input type="text" name="tag" id="query" />
+
+      <input type="submit" name="submit" value="submit" />
+    </form>
+
+    <div id="lastQuery"></div>
+
+    <ol id="searchResults"></ol>
+
+    <script id="resultTemplate" type="text/html">
+      <% _.each(items, function( item ){ %>
+      <li><img src="<%= item.media.m %>" /></li>
+      <% });%>
+    </script>
+
+    <script src="./pub-sub3.js"></script>
+  </body>
+</html>
